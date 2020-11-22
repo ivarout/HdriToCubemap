@@ -21,6 +21,8 @@ cd HdriToCubemap
 git submodule update --init --recursive
 ```
 
+When building through the CMake Gui, the `HDRITOCUBEMAP_USE_OPENCL` option can be checked if the user wishes to use the OpenCL implementation.
+
 Note that C++17 is required (due to usage of std::clamp).
 
 # Usage
