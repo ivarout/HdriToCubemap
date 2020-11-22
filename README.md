@@ -1,5 +1,5 @@
 # Hdri To Cubemap 
-This project contains a simple single-header library to convert hdri (equirectangular) environment maps to cubemaps, an example of which is shown below, for an hdri obtained from [HDRIHaven](https://hdrihaven.com/):
+This project contains a simple single-header C++ library to convert hdri (equirectangular) environment maps to cubemaps, an example of which is shown below, for an hdri obtained from [HDRIHaven](https://hdrihaven.com/):
 
 ![GitHub Logo](images/cubemap.png)
 
@@ -13,16 +13,18 @@ Currently, [stb image](<https://github.com/nothings/stb>) is used for image load
 OpenCL support is provided for calculating the cubemap's faces. Do note that there is no big performance gain compared to the cpu implementation, since io operations take up most of the time.
 
 # Installation
+The only dependency of HdriToCubemap is [stb image](<https://github.com/nothings/stb>). Clone the repository for an example implementation using:
+
 ```
 git clone https://github.com/ivarout/HdriToCubemap.git
 cd HdriToCubemap
 git submodule update --init --recursive
 ```
 
-Note that C++17 is required (due to usage of std::clamp). [stb image](<https://github.com/nothings/stb>)
+Note that C++17 is required (due to usage of std::clamp).
 
 # Usage
-Note that the template class `HdriToCubemap` supports `float` and `unsigned char` types, the first storing an hdr image, and the latter a 8-bit-per-channel ldr image. If the provided image is an hdr image, while the provided template type is `<unsigned char>`, [stb image](<https://github.com/nothings/stb>) will perform the conversion from hdr to ldr, and vice versa.
+Note that the template class `HdriToCubemap` supports `float` and `unsigned char` types, the first storing an hdr image, and the latter an 8-bit-per-channel ldr image. If the provided image is an hdr image, while the provided template type is `<unsigned char>`, [stb image](<https://github.com/nothings/stb>) will perform the conversion from hdr to ldr, and vice versa.
 
 When constructing an instance of the `HdriToCubemap` class, the user has to provide a resolution to be used for the cubemap faces, and optionally a boolean with sets the filter type, which defaults to `true`, resulting in bilinear interpolation. When set to `false`, the *nearest* pixel in the environment map will be used.
 
@@ -41,11 +43,11 @@ if (hdriToCube_ldr.getNumChannels() == 4)
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_RGBA8, hdriToCube.getCubemapResolution(), hdriToCube.getCubemapResolution(), 0, GL_RGBA, GL_UNSIGNED_BYTE, front);
 }
 
-// or output cube images to file
+// or output cube images to file (6 images will be output: "front.png", "back.png", "left.png", "right.png", "up.png", and "down.png")
 hdriToCube_ldr.writeCubemap("output_directory");
 ```
 
-To use OpenCL (v1.2) for calculating cubemap faces, `_USE_OPENCL` has to be defined. See [CMakeLists.txt](CMakeLists.txt) for reference. 
+To use OpenCL (v1.2) for calculating cubemap faces, `_USE_OPENCL` has to be defined. See [CMakeLists.txt](HdriToCubemap/CMakeLists.txt) for reference. 
 
 ## Other notes 
 
