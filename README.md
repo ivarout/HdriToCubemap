@@ -1,5 +1,5 @@
 # Hdri To Cubemap 
-This project contains a simple single-header C++ library to convert hdri (equirectangular) environment maps to cubemaps, an example of which is shown below, for an hdri obtained from [HDRIHaven](https://hdrihaven.com/):
+This project contains a simple C++ library to convert hdri (equirectangular) environment maps to cubemaps, an example of which is shown below, for an hdri obtained from [HDRIHaven](https://hdrihaven.com/):
 
 ![GitHub Logo](images/cubemap.png)
 
