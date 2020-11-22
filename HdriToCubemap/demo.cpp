@@ -2,6 +2,6 @@
 
 int main()
 {
-    HdriToCubemap<unsigned char> hdri2cubemap("C:/dev/HdriToCubemap_old/hdri/shanghai_bund_1k.hdr", 512, true);
-    hdri2cubemap.writeCubemap("C:/dev/HdriToCubemap_old/output");
+    HdriToCubemap<unsigned char> hdri2cubemap("path_to_hdri_image", 512, true);
+    hdri2cubemap.writeCubemap("output_folder");
 }

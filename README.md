@@ -13,14 +13,13 @@ Currently, [stb image](<https://github.com/nothings/stb>) is used for image load
 OpenCL support is provided for calculating the cubemap's faces. Do note that there is no big performance gain compared to the cpu implementation, since io operations take up most of the time.
 
 # Installation
+```
+git clone https://github.com/ivarout/HdriToCubemap.git
+cd HdriToCubemap
+git submodule update --init --recursive
+```
 
-
-Requires C++17
-
-
-C++17
-
-Makes use of stb-image, which is added as a submodule. Make sure to use `git -r iitnit something
+Note that C++17 is required (due to usage of std::clamp). [stb image](<https://github.com/nothings/stb>)
 
 # Usage
 Note that the template class `HdriToCubemap` supports `float` and `unsigned char` types, the first storing an hdr image, and the latter a 8-bit-per-channel ldr image. If the provided image is an hdr image, while the provided template type is `<unsigned char>`, [stb image](<https://github.com/nothings/stb>) will perform the conversion from hdr to ldr, and vice versa.
