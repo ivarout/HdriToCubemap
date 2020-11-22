@@ -28,7 +28,7 @@ Note that C++17 is required (due to usage of std::clamp).
 # Usage
 Note that the template class `HdriToCubemap` supports `float` and `unsigned char` types, the first storing an hdr image, and the latter an 8-bit-per-channel ldr image. If the provided image is an hdr image, while the provided template type is `<unsigned char>`, [stb image](<https://github.com/nothings/stb>) will perform the conversion from hdr to ldr, and vice versa.
 
-When constructing an instance of the `HdriToCubemap` class, the user has to provide a resolution to be used for the cubemap faces, and optionally a boolean with sets the filter type, which defaults to `true`, resulting in bilinear interpolation. When set to `false`, the *nearest* pixel in the environment map will be used.
+When constructing an instance of the `HdriToCubemap` class, the user has to provide a resolution to be used for the cubemap faces, and optionally a boolean which sets the filter type, which defaults to `true`, resulting in bilinear interpolation. When set to `false`, the *nearest* pixel in the environment map will be used.
 
 ```c++
 // load hdr or ldr image
