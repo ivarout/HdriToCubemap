@@ -7,9 +7,9 @@ if(HDRITOCUBEMAP_USE_OPENCL)
         if(OpenCL_FOUND)
             target_link_libraries (HdriToCubemap INTERFACE ${OpenCL_LIBRARY})
             target_include_directories(HdriToCubemap INTERFACE ${OpenCL_INCLUDE_DIRS})
-            target_compile_definitions(HdriToCubemap INTERFACE HDRITOCUBEMAP_USE_OPENCL 
-                                                            HDRITOCUBEMAP_CL_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
-                                                            CL_TARGET_OPENCL_VERSION=120)
+            target_compile_definitions(HdriToCubemap INTERFACE USE_OPENCL
+                                                                CL_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
+                                                                CL_TARGET_OPENCL_VERSION=120)
         endif(OpenCL_FOUND)
     else()
         message(WARNING "OpenCL implementation is currently only supported on Windows, defaulted back to cpu implementation")

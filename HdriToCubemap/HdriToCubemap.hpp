@@ -130,7 +130,7 @@ void HdriToCubemap<T>::writeCubemap(const std::string& outputFolder)
     }
 }
 
-#ifndef HDRITOCUBEMAP_USE_OPENCL // cpu implementation
+#ifndef USE_OPENCL // cpu implementation
 template<typename T> 
 void HdriToCubemap<T>::calculateCubemap()
 {
@@ -262,7 +262,7 @@ void HdriToCubemap<T>::calculateCubemap()
     }
 
     // create cl program
-    std::string pathToClFile = std::string(HDRITOCUBEMAP_CL_DIR) + "/ProcessFace.cl";
+    std::string pathToClFile = std::string(CL_DIR) + "/ProcessFace.cl";
     std::ifstream clFile(pathToClFile.c_str());
     std::string src(std::istreambuf_iterator<char>(clFile), (std::istreambuf_iterator<char>()));
     std::vector<cl::Platform> platforms;
