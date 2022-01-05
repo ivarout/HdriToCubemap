@@ -2,6 +2,6 @@
 
 int main()
 {
-    HdriToCubemap<unsigned char> hdri2cubemap("/home/ivar/temp/shanghai_bund_1k.hdr", 512, true);
-    hdri2cubemap.writeCubemap(""); //specify existing output folder
+    HdriToCubemap<unsigned char> hdri2cubemap("<path to panoramic image>", 512, true);
+    hdri2cubemap.writeCubemap("<output folder>"); //optionally, specify an output folder
 }

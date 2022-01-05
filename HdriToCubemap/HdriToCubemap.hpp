@@ -42,7 +42,7 @@ class HdriToCubemap
         T* getRight(){ return m_faces[3]; }
         T* getUp(){ return m_faces[4]; }
         T* getDown(){ return m_faces[5]; }
-        void writeCubemap(const std::string& outputFolder);
+        void writeCubemap(const std::string& outputFolder = "");
 
     private:
         void calculateCubemap();
