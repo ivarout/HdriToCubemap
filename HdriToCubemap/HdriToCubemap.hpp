@@ -113,7 +113,8 @@ void HdriToCubemap<T>::writeCubemap(const std::string& outputFolder)
     for (int i = 0; i < 6; i++)
     {   
         int success;
-        std::string path = outputFolder + "/" + filenames[i];
+        
+        std::string path = outputFolder + (outputFolder.empty() ? "" : "/" ) + filenames[i];
         if (m_isHdri)
         {
             path += ".hdr";
@@ -129,7 +130,7 @@ void HdriToCubemap<T>::writeCubemap(const std::string& outputFolder)
     }
 }
 
-#ifndef _USE_OPENCL // cpu implementation
+#ifndef HDRITOCUBEMAP_USE_OPENCL // cpu implementation
 template<typename T> 
 void HdriToCubemap<T>::calculateCubemap()
 {
